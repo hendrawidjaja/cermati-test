@@ -13,6 +13,7 @@
   --fs-l: 1.8rem;
   --fs-xl: 2rem;
   --text-grey: rgba(32, 32, 32, 0.7);
+  --max-screen-width: 1366px;
 }
 
 * {
@@ -44,24 +45,68 @@ p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 img {
   max-width: 100%;
 }
 
 .btn {
-  color: var(--cl-white);
   border: none;
   cursor: pointer;
+  border-radius: 3px;
+  padding: 0;
 }
 
 .main {
-  max-width: 1366px;
+  max-width: var(--max-screen-width);
   overflow: hidden;
   margin: 0 auto;
 }
 
 .section {
   position: relative;
+}
+
+.section-notification-panel {
+  background-color: var(--cl-smoke-grey);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.section-notification-panel .wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.section-notification-panel .text {
+  margin: 0 auto;
+}
+
+.section-notification-panel p {
+}
+
+.section-notification-panel a {
+  color: var(--cl-blue);
+}
+
+.section-notification-panel .btn-notification-panel {
+  color: var(--cl-white);
+  background-color: var(--cl-blue);
+}
+
+.section-notification-panel .btn-notification-panel:hover {
+  background-color: var(--cl-dark-blue);
 }
 
 .section-header {
@@ -125,9 +170,9 @@ img {
   margin-top: 1.5rem;
   padding: 0.8rem 1.5rem 0.7rem;
   border: 2px solid var(--cl-white);
-  border-radius: 2px;
   font-size: var(--fs-xxs);
   background-color: transparent;
+  color: var(--cl-white);
 }
 
 .section-header .btn-contact:hover {
@@ -390,6 +435,26 @@ footer span {
 }
 
 @media (min-width: 960px) {
+  .section-notification-panel {
+    margin: 0 auto;
+    max-width: var(--max-screen-width);
+  }
+
+  .section-notification-panel .wrapper {
+    width: 720px;
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .section-notification-panel p {
+    flex-basis: 70%;
+    font-size: var(--fs-xxs);
+  }
+
+  .section-notification-panel .btn-notification-panel {
+    flex-basis: 10%;
+  }
+
   .section-header .text {
     width: 50%;
   }
