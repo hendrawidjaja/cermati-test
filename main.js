@@ -5,14 +5,24 @@ window.onscroll = function (e) {
   }
 };
 
+const btnCloseNotification = document.querySelector(".btn-notification-panel");
 const btnCloseNewsLetter = document.querySelector(".btn-close");
+const notificationPanel = document.querySelector(".section-notification-panel");
 const newsLetterPanel = document.querySelector(".section-newsletter-panel");
 
-/* click event */
-btnCloseNewsLetter.onclick = function () {
-  newsLetterPanel.classList.add("hide");
+function removeNode(selector, classList = "hide", timeout = 6000) {
+  selector.classList.add(classList);
 
   setTimeout(function () {
-    newsLetterPanel.parentNode.removeChild(newsLetterPanel);
-  }, 2000);
+    selector.parentNode.removeChild(selector);
+  }, timeout);
+}
+
+/* click event */
+btnCloseNotification.onclick = function () {
+  removeNode(notificationPanel);
+};
+
+btnCloseNewsLetter.onclick = function () {
+  removeNode(newsLetterPanel);
 };
