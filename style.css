@@ -63,31 +63,21 @@ a {
 
 @keyframes newletterpanelHide {
   from {
-    left: 0;
+    bottom: 0;
   }
 
   to {
-    left: -640px;
-  }
-}
-
-@keyframes newletterpanelShow {
-  from {
-    left: -640px;
-  }
-
-  to {
-    left: 0;
+    bottom: -640px;
   }
 }
 
 @keyframes newletterpanelReveal {
   from {
-    left: -640px;
+    bottom: -640px;
   }
 
   to {
-    left: 0;
+    bottom: 0;
   }
 }
 
@@ -109,16 +99,16 @@ a {
 }
 
 .section-notification-panel {
-  background-color: var(--cl-smoke-grey);
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  position: absolute;
   z-index: 1;
-  width: 100%;
-  left: 0;
-  right: 0;
+  position: absolute;
   top: 0;
+  right: 0;
+  left: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--cl-smoke-grey);
 }
 
 .section-notification-panel.hide {
@@ -139,6 +129,7 @@ a {
 }
 
 .section-notification-panel p {
+  max-width: 80%;
   font-size: var(--fs-xxxs);
   line-height: 1.25;
 }
@@ -215,15 +206,16 @@ a {
   width: 70%;
   margin: 1rem auto 0;
   font-size: var(--fs-xxs);
+  line-height: 1.5;
 }
 
 .section-header .btn-contact {
   margin-top: 1.5rem;
   padding: 0.8rem 1.5rem 0.7rem;
   border: 2px solid var(--cl-white);
+  color: var(--cl-white);
   font-size: var(--fs-xxs);
   background-color: transparent;
-  color: var(--cl-white);
 }
 
 .section-header .btn-contact:hover {
@@ -248,6 +240,7 @@ a {
 .highlight-title h3 {
   font-size: var(--fs-m);
   color: var(--text-grey);
+  text-align: center;
 }
 
 .highlight-teaser-text {
@@ -255,14 +248,13 @@ a {
 }
 
 .highlight-teaser-text p {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-
   width: calc(100% - 1vw);
-  line-height: 1.5;
+  margin-right: auto;
+  margin-left: auto;
   color: var(--text-grey);
   font-size: var(--fs-xs);
+  line-height: 1.5;
+  text-align: center;
 }
 
 .highlight-teaser-text p:not(:first-child) {
@@ -275,12 +267,12 @@ a {
 }
 
 .card {
-  border: 2px solid rgba(192, 192, 192, 0.35);
   display: flex;
-  flex-direction: column;
   flex-basis: 100%;
-  padding: 1rem 1rem 1rem;
+  flex-direction: column;
   margin-top: 1rem;
+  padding: 1rem 1rem 1rem;
+  border: 2px solid rgba(192, 192, 192, 0.35);
 }
 
 .wrapper-highlight,
@@ -312,42 +304,40 @@ a {
 /* newsletter */
 .section-newsletter-panel {
   position: absolute;
-  bottom: 0;
+  left: 0;
   max-width: 640px;
+  padding: 1rem 0 1.5rem;
   color: var(--cl-white);
   background-color: var(--cl-blue);
-  left: -640px;
 }
 
 .section-newsletter-panel.reveal {
   animation-name: newletterpanelReveal;
-  animation-duration: 1s;
-  left: 0;
+  animation-duration: 2s;
+  bottom: 0;
 }
 
 .section-newsletter-panel.hide {
   animation-name: newletterpanelHide;
-  animation-duration: 1s;
-  left: -640px;
-}
-
-.section-newsletter-panel.remove {
-  display: none;
+  animation-duration: 2.5s;
+  bottom: -640px;
 }
 
 .btn-close {
   position: absolute;
-  right: 2%;
+  right: 3%;
   top: 5%;
+  font-size: var(--fs-s);
 }
 
 .newsletter-content {
   background-color: var(--cl-blue);
-  padding: 2rem 2rem 1.2rem;
+  padding: 1rem 2rem 1.2rem;
 }
 
 .newsletter-content h3 {
   font-size: var(--fs-m);
+  line-height: 1.5;
 }
 
 .newsletter-content p {
@@ -360,10 +350,10 @@ a {
   display: flex;
   padding-left: 2rem;
   padding-right: 2rem;
+  flex-direction: column;
 }
 
 .newsletter-email {
-  width: 75%;
   color: var(--cl-smoke-grey);
 }
 
@@ -375,9 +365,9 @@ a {
 }
 
 .btn-newsletter {
-  width: 25%;
-  margin-left: 1rem;
   background-color: var(--cl-orange);
+  margin-top: 1rem;
+  color: var(--cl-white);
 }
 
 .btn-newsletter:hover {
@@ -435,8 +425,7 @@ footer span {
   }
 
   .section-header .btn-contact {
-    font-size: var(--fs-s);
-    padding: 1rem 1.5rem 0.9rem;
+    font-size: var(--fs-xs);
   }
 
   .highlight-teaser-text p {
@@ -515,6 +504,7 @@ footer span {
 
   .section-header .btn-contact {
     font-size: var(--fs-xs);
+    padding: 1rem 1.5rem 0.9rem;
   }
 
   .highlight-title h3 {
@@ -541,6 +531,20 @@ footer span {
 
   .card-text p {
     font-size: var(--fs-xs);
+  }
+
+  .wrapper-newsletter-signup {
+    flex-direction: row;
+  }
+
+  .newsletter-email {
+    flex-basis: 75%;
+  }
+
+  .btn-newsletter {
+    margin-top: 0;
+    margin-left: 1rem;
+    flex-basis: 25%;
   }
 
   footer span {
